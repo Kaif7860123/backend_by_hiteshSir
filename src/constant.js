@@ -1,2 +1,2 @@
-  const DB_NAME="VIDEOTUBE"
+  const DB_NAME="backend"
   module.exports=DB_NAME

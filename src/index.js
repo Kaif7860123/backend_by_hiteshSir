@@ -1,10 +1,20 @@
  const express=require("express")
 const connectDB = require("./db")
+const dotenv=require("dotenv")
+dotenv.config()
  const app=express()
- connectDB()
- app.listen(process.env.PORT,()=>{
-    console.log(`app is listening at port ${process.env.PORT}`)
+ connectDB().then(()=>{
+    app.on("err",(err)=>{
+        console.error(err)
+        throw err
+    })
+    app.listen(process.env.PORT,()=>{
+        console.log(`app is listening at port ${process.env.PORT}`)
+     })
  })
+.catch((err)=>{
+    console.error(err)
+})
 
 
 
