@@ -1,6 +1,8 @@
  const express=require("express")
 const connectDB = require("./db")
 const dotenv=require("dotenv")
+const userRouter = require("./routes/user.router")
+// const app=require("./app.js")
 dotenv.config()
  const app=express()
  connectDB().then(()=>{
@@ -8,6 +10,8 @@ dotenv.config()
         console.error(err)
         throw err
     })
+    app.use("/api/v1/users",userRouter)
+
     app.listen(process.env.PORT,()=>{
         console.log(`app is listening at port ${process.env.PORT}`)
      })
@@ -15,6 +19,7 @@ dotenv.config()
 .catch((err)=>{
     console.error(err)
 })
+
 
 
 

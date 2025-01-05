@@ -1,2 +1,2 @@
-  const DB_NAME="backend"
+  const DB_NAME="chaiBackend"
   module.exports=DB_NAME
